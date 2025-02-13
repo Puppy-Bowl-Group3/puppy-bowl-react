@@ -8,6 +8,7 @@ export function AllPlayers() {
     const getPlayers = async () => {
       try {
         const data = await fetchAllPlayers();
+        console.log('data => ', data);
         setPlayers(data);
       } catch (error) {
         console.error(error)
