@@ -11,7 +11,7 @@ const state = {
  * Fetches all players from the API.
  * @returns {Object[]} the array of player objects
  */
-export default fetchAllPlayers = async () => {
+export const fetchAllPlayers = async () => {
   try {
     const response = await fetch(PLAYERS_API_URL);
     const data = await response.json();

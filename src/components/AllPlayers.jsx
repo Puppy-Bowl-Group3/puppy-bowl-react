@@ -4,8 +4,21 @@ import { useState, useEffect } from 'react'
 export function AllPlayers() {
   const [players, setPlayers] = useState([])
 
-  console.log({fetchAllPlayers});
+  useEffect(() => {
+    const getPlayers = async () => {
+      try {
+        const data = await fetchAllPlayers();
+        setPlayers(data);
+      } catch (error) {
+        console.error(error)
+      }
+    };
+    getPlayers();
+  }, []);
 
+  // Use this to make sure we are calling the function correctly
+  // console.log({fetchAllPlayers});
+  
   return (
     <>
       <div>
