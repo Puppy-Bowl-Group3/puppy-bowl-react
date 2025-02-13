@@ -1,10 +1,12 @@
-import {fetchAllPlayers} from '../API/index.js'
-import { useState, useEffect } from 'react'
+import {fetchAllPlayers, fetchSinglePlayer} from '../API/index.js'
+import React, { useState, useEffect } from 'react'
+import { Route, useNavigate } from 'react-router-dom';
+import SinglePlayer from './SinglePlayer.jsx';
 
 export function AllPlayers() {
   const [players, setPlayers] = useState([])
 
-  useEffect(() => {
+  useEffect((e) => {
     const getPlayers = async () => {
       try {
         const data = await fetchAllPlayers();
@@ -22,14 +24,17 @@ export function AllPlayers() {
 
   return (
     <>
-    <div>
+    <div className='playersCard'>
         {
             players.map((player)=>{
+              console.log('player card player = ', player)
                 return (
                     <div key={player.id}>
                         <h4>{player.name}</h4>
                         <h4>{player.breed}</h4>
-                        <img className='playerImg' src={player.imageUrl} alt={player.name}/>
+                        <img className='playerImg' src={player.imageUrl} alt={player.name}/><br/>
+                        <SinglePlayer playerId={player.id} />
+                        
                     </div>
                 )
             })
