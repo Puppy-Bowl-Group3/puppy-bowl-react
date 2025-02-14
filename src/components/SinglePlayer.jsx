@@ -4,15 +4,15 @@ import { useNavigate, useParams } from "react-router-dom";
 
 export default function SinglePlayer({playerId}) {
   const [player, setPlayer] = useState([])
-  let { id: playerIdFromParams } = useParams();
-  const isOnSinglePlayerPage = !!playerIdFromParams
+  let { id } = useParams();
+  //const isOnSinglePlayerPage = !!id
   const navigate = useNavigate()
-  console.log('SinglePlayer playerId = ', playerId || playerIdFromParams)
+  //console.log('SinglePlayer playerId = ', playerId || id)
 
   useEffect(() => {
     const getPlayer = async () => {
       try {
-        const selectedPlayer = await fetchSinglePlayer(playerId || playerIdFromParams);
+        const selectedPlayer = await fetchSinglePlayer(playerId || id);
         console.log('selectedPlayer = ', selectedPlayer)
         setPlayer(selectedPlayer)
       } catch (error) {
@@ -27,17 +27,14 @@ export default function SinglePlayer({playerId}) {
     <>
       <div>
         {
-          isOnSinglePlayerPage ? (
+          id ? (
             <>
               <ul>
-                <li><b>breed:</b> {player?.breed}</li>
-                <li><b>cohortId:</b> {player?.cohortId}</li>
-                <li><b>createdAt:</b> {player?.createdAt}</li>
-                <li><b>id:</b> {player?.id}</li>
-                <li><b>imageUrl:</b> {player?.imageUrl}</li>
                 <li><b>name:</b> {player?.name}</li>
+                <li><b>breed:</b> {player?.breed}</li>
+                <li><b>id:</b> {player?.id}</li>
+                <li><img src={player?.imageUrl} alt={player?.name}></img></li>
                 <li><b>status:</b> {player?.status}</li>
-                <li><b>Team Cohort ID:</b> {player?.team?.cohortId}</li>
                 <li><b>player team createdAt: </b> {player?.team?.createdAt}</li>
                 <li><b>player team id: </b> {player?.team?.id}</li>
                 <li><b>player team name: </b> {player?.team?.name}</li>
@@ -47,7 +44,7 @@ export default function SinglePlayer({playerId}) {
                   })
                 }
                 <li><b>player team score: </b> {player?.team?.score}</li>
-                <li><b>player team updatedAt: </b> {player?.team?.updatedAt}</li>
+                <li><button onClick={() => navigate('/')}> <b>Back</b></button></li>
               </ul>
             </>
           ) : (
