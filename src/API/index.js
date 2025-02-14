@@ -27,7 +27,7 @@ export const fetchSinglePlayer = async (playerID) => {
   const response = await fetch(PLAYERS_API_URL + '/' + playerID);
   try {
       const result = await response.json();
-      console.log('player results = ', result)
+      //console.log('player results = ', result)
       const player = result.data.player;
       return player;
     }
@@ -35,3 +35,22 @@ export const fetchSinglePlayer = async (playerID) => {
     console.error(`Oh no, trouble fetching player #${playerID}!`, err);
   }
 };
+
+export const addNewPlayer = async (newPlayerObj) =>{
+  try {
+    const response = await fetch(PLAYERS_API_URL, {
+      method: "POST",
+      headers: {
+        'Content-Type' : 'application/json',
+      },
+      body: JSON.stringify(newPlayerObj)
+    })
+    if(response.ok) {
+      const result = await response.json();
+      console.log("addNewPlayer fetch response is", result)
+      
+    }
+  } catch (err) {
+    console.error(err)
+  }
+}
