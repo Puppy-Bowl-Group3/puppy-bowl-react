@@ -2,6 +2,8 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+
+import Header from './components/Header'
 import { AllPlayers } from './components/AllPlayers'
 import NavBar from './components/NavBar'
 import NewPlayerForm from './components/NewPlayerForm'
@@ -12,6 +14,8 @@ function App() {
   const [allNewPlayers, setAllNewPlayers] = useState([])  
   return (
     <>
+    <Header />
+    <NavBar/>
       <Routes>
         <Route path='/' element={<AllPlayers allNewPlayers={allNewPlayers} setAllNewPlayers={setAllNewPlayers} />} />
         <Route path='/players/:id' element={<SinglePlayer />} />

@@ -19,6 +19,8 @@ const [players, setPlayers] = useState([])
     getPlayers();
   }, [allNewPlayers]);
 
+  const defaultImage = "https://imgur.com/Im9JnQI.png"; 
+
   // Use this to make sure we are calling the function correctly
   // console.log({fetchAllPlayers});
 
@@ -26,21 +28,22 @@ const [players, setPlayers] = useState([])
     <>
     <NewPlayerForm setAllNewPlayers={setAllNewPlayers}/>
     <div className='playersCard'>
-        {
-            players.map((player)=>{
+        {players.map((player) => (
               //console.log('player card player = ', player)
-                return (
-                    <div key={player.id}>
-                        <h4><b>Name:</b>{player.name}</h4>
-                        <h4><b>Breed:</b>{player.breed}</h4>
-                        <img className='playerImg' src={player.imageUrl} alt={player.name}/><br/>
-                        <SinglePlayer playerId={player.id} />
-                        
-                    </div>
-                )
-            })
-        }
-    </div>
+              <div key={player.id} className="playersCard">
+              <h4><b>Name:</b> {player.name}</h4>
+              <h4><b>Breed:</b> {player.breed}</h4>
+
+                        <img 
+              className="playerImg" 
+              src={player.imageUrl?.trim() ? player.imageUrl : defaultImage} 
+              alt={player.name || "Default Puppy"}
+              onError={(e) => (e.target.src = defaultImage)}
+            />
+            <SinglePlayer playerId={player.id} />
+          </div>
+        ))}
+      </div>
     </>
   );
 }
