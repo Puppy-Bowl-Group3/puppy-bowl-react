@@ -9,12 +9,13 @@ import SinglePlayer from './components/SinglePlayer'
 import {Routes, Route, Link} from 'react-router-dom'
 
 function App() {
-  
+  const [allNewPlayers, setAllNewPlayers] = useState([])  
   return (
     <>
       <Routes>
-        <Route path='/' element={<AllPlayers />} />
+        <Route path='/' element={<AllPlayers allNewPlayers={allNewPlayers} setAllNewPlayers={setAllNewPlayers} />} />
         <Route path='/players/:id' element={<SinglePlayer />} />
+        <Route path='/' element={<NewPlayerForm setAllNewPlayers={setAllNewPlayers} />} />
       </Routes>
     </>
   )
