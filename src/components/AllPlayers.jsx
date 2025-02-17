@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import {fetchAllPlayers, fetchSinglePlayer} from '../API/index.js'
-import { Route, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { fetchAllPlayers } from '../API/index.js';
 import SinglePlayer from './SinglePlayer.jsx';
-import SearchBar from "./SearchBar";
+import NewPlayerForm from './NewPlayerForm.jsx';
+import SearchBar from './SearchBar';
 
-
-export function AllPlayers() {
-  const [players, setPlayers] = useState([])
+export function AllPlayers({ allNewPlayers, setAllNewPlayers }) {
+  const [players, setPlayers] = useState([]);
   const [filteredPlayers, setFilteredPlayers] = useState([]);
+  // const defaultImage = 'https://imgur.com/Im9JnQI.png';
 
-  useEffect((e) => {
+  useEffect(() => {
     const getPlayers = async () => {
       try {
         const data = await fetchAllPlayers();
@@ -17,12 +17,11 @@ export function AllPlayers() {
         setPlayers(data.players);
         setFilteredPlayers(data.players);
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
     };
     getPlayers();
-  }, []);
-
+  }, [allNewPlayers]);
 
   const handleSearch = (query) => {
     const filtered = players.filter((player) =>
@@ -31,22 +30,23 @@ export function AllPlayers() {
     setFilteredPlayers(filtered);
   };
 
-  // Use this to make sure we are calling the function correctly
-  // console.log({fetchAllPlayers});
-
   return (
     <>
-      <SearchBar onSearch={handleSearch} /> 
+      <NewPlayerForm setAllNewPlayers={setAllNewPlayers} />
+      <SearchBar onSearch={handleSearch} />
       <div className='playersCard'>
-        {filteredPlayers.map((player) => ( 
-
-          <div key={player.id}>
-            <h4>{player.name}</h4>
-            <h4>{player.breed}</h4>
-            <img className='playerImg' src={player.imageUrl} alt={player.name} /><br />
+        {filteredPlayers.map((player) => (
+          <div key={player.id} className='playersCard'>
+            <h4><b>Name:</b> {player.name}</h4>
+            <h4><b>Breed:</b> {player.breed}</h4>
+            <img 
+              className='playerImg' 
+              src={player.imageUrl?.trim() ? player.imageUrl : defaultImage} 
+              alt={player.name || 'Default Puppy'}
+              onError={(e) => (e.target.src = defaultImage)}
+            />
             <SinglePlayer playerId={player.id} />
           </div>
-          
         ))}
       </div>
     </>
