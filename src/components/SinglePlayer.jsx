@@ -13,7 +13,7 @@ export default function SinglePlayer({playerId}) {
     const getPlayer = async () => {
       try {
         const selectedPlayer = await fetchSinglePlayer(playerId || id);
-        console.log('selectedPlayer = ', selectedPlayer)
+        // console.log('selectedPlayer = ', selectedPlayer)
         setPlayer(selectedPlayer)
       } catch (error) {
         console.error(error)
@@ -22,7 +22,8 @@ export default function SinglePlayer({playerId}) {
     getPlayer();
   },[])
 
-  console.log("player => ", player)
+  // console.log("player => ", player)
+
   return (
     <>
       <div>

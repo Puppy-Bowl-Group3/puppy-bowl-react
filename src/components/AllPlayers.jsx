@@ -7,13 +7,13 @@ import SearchBar from './SearchBar';
 export function AllPlayers({ allNewPlayers, setAllNewPlayers }) {
   const [players, setPlayers] = useState([]);
   const [filteredPlayers, setFilteredPlayers] = useState([]);
-  // const defaultImage = 'https://imgur.com/Im9JnQI.png';
+  const defaultImage = 'https://imgur.com/Im9JnQI.png';
 
   useEffect(() => {
     const getPlayers = async () => {
       try {
         const data = await fetchAllPlayers();
-        console.log('data => ', data);
+        // console.log('data => ', data);
         setPlayers(data.players);
         setFilteredPlayers(data.players);
       } catch (error) {
