@@ -25,7 +25,7 @@ export default function NewPlayerForm({setAllNewPlayers}) {
     if (username.length) {
       try {
         let newPlayerObj = {}
-        if (selectedTeam === 'none') {
+        if (selectedTeam === '') {
           newPlayerObj = {
             name: username,
             breed: breed,
@@ -39,6 +39,7 @@ export default function NewPlayerForm({setAllNewPlayers}) {
             teamId: selectedTeam,
           }
         }
+        console.log(selectedTeam);
         await addNewPlayer(newPlayerObj);
         console.log(newPlayerObj)
         const result = await fetchAllPlayers()
