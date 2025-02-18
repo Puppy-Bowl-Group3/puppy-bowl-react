@@ -65,3 +65,29 @@
   margin: 10px;
   padding: 20px;
 }
+
+.navbar {
+  border: 8px solid black;
+  display: flex;
+  padding: 20px;
+  margin: 10px;
+  width: 80%;
+  position:fixed top;
+  background-color: lightgrey;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.navbar-ul{
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+}
+
+.navbar-li {
+  margin: 10px;
+  padding: 10px;
+
+
+}
