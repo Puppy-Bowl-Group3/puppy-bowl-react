@@ -32,7 +32,7 @@ export function AllPlayers({ allNewPlayers, setAllNewPlayers }) {
 
   return (
     <>
-      <NewPlayerForm setAllNewPlayers={setAllNewPlayers} />
+      {/* <NewPlayerForm setAllNewPlayers={setAllNewPlayers} /> */}
       <SearchBar onSearch={handleSearch} />
       <div className='playerCards'>
         {filteredPlayers.map((player) => (

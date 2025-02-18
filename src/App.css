@@ -65,3 +65,47 @@
   margin: 10px;
   padding: 20px;
 }
+
+.navbar {
+  border: 8px solid black;
+  display: flex;
+  padding: 20px;
+  margin: 10px;
+  width: 80%;
+  height: 10%;
+  align-items: stretch;
+  justify-content: center;
+  background-color: cornsilk;
+  position: static top;
+
+
+
+
+
+}
+
+.navbar-ul{
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+}
+
+.navbar-li {
+  margin: 10px;
+  padding: 10px;
+
+
+}
+
+.newPlayerForm {
+  padding: 20px;
+  border: 8px solid black;
+  justify-content: left;
+  width: 65%;
+  align-items: left;
+  height: auto;
+  position: static;
+  background-color: cornsilk;
+  color: black;
+  text-align: center;
+}

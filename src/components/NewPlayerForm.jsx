@@ -62,7 +62,7 @@ export default function NewPlayerForm({setAllNewPlayers}) {
     <>
       {
         
-        <div>
+        <div className="newPlayerForm">
           <form action="" onSubmit={handleSubmit}>
             <label>
               <b>Name:</b>

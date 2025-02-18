@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path='/' element={<AllPlayers allNewPlayers={allNewPlayers} setAllNewPlayers={setAllNewPlayers} />} />
         <Route path='/players/:id' element={<SinglePlayer />} />
-        <Route path='/' element={<NewPlayerForm setAllNewPlayers={setAllNewPlayers} />} />
+        <Route path='/newPlayerForm' element={<NewPlayerForm setAllNewPlayers={setAllNewPlayers} />} />
       </Routes>
     </>
   )
