@@ -77,7 +77,7 @@
   justify-content: center;
   background-color: cornsilk;
   position: static top;
-  
+
 
 
 
@@ -99,9 +99,13 @@
 
 .newPlayerForm {
   padding: 20px;
-  justify-content: center;
+  border: 8px solid black;
+  justify-content: left;
+  width: 65%;
+  align-items: left;
   height: auto;
   position: static;
-
-
+  background-color: cornsilk;
+  color: black;
+  text-align: center;
 }
