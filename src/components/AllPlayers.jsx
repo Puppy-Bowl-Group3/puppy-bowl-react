@@ -34,9 +34,9 @@ export function AllPlayers({ allNewPlayers, setAllNewPlayers }) {
     <>
       <NewPlayerForm setAllNewPlayers={setAllNewPlayers} />
       <SearchBar onSearch={handleSearch} />
-      <div className='playersCard'>
+      <div className='playerCards'>
         {filteredPlayers.map((player) => (
-          <div key={player.id} className='playersCard'>
+          <div key={player.id} className='playerCard'>
             <h4><b>Name:</b> {player.name}</h4>
             <h4><b>Breed:</b> {player.breed}</h4>
             <img 

@@ -34,7 +34,7 @@ export default function SinglePlayer({playerId}) {
                 <li><b>name:</b> {player?.name}</li>
                 <li><b>breed:</b> {player?.breed}</li>
                 <li><b>id:</b> {player?.id}</li>
-                <li><img src={player?.imageUrl} alt={player?.name}></img></li>
+                <li><img className='playerImg' src={player?.imageUrl} alt={player?.name}></img></li>
                 <li><b>status:</b> {player?.status}</li>
                 <li><b>player team createdAt: </b> {player?.team?.createdAt}</li>
                 <li><b>player team id: </b> {player?.team?.id}</li>
