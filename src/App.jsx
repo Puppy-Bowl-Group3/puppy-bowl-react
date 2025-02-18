@@ -14,8 +14,14 @@ function App() {
   const [allNewPlayers, setAllNewPlayers] = useState([])  
   return (
     <>
+<<<<<<< HEAD
     <Header />
     <NavBar/>
+=======
+    <NavBar>
+      
+    </NavBar>
+>>>>>>> main
       <Routes>
         <Route path='/' element={<AllPlayers allNewPlayers={allNewPlayers} setAllNewPlayers={setAllNewPlayers} />} />
         <Route path='/players/:id' element={<SinglePlayer />} />
